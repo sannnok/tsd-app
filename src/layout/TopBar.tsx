@@ -6,7 +6,7 @@ function TopBar() {
 			<AppBar position="static">
 				<Toolbar>
 					<Box sx={{display: 'flex', gap: '16px'}}>
-						<img src="/img/company_logo.svg" alt="company logo" style={{
+						<img src={`${import.meta.env.BASE_URL}img/company_logo.svg`} alt="company logo" style={{
 							height: '30px'
 						}}/>
 						<Typography variant="h6" sx={{fontWeight: '400', borderBottom: '3px solid white'}}>Apps</Typography>

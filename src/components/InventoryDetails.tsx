@@ -8,7 +8,7 @@ function InventoryDetails({appId}) {
 	const [inventoryDetails, setInventoryDetails] = useState<AppDetails>();
 
   const fetchAppInventoryDetails = async () => {
-    const response = await fetch('/app_details.mock.json');
+    const response = await fetch(`${import.meta.env.BASE_URL}/app_details.mock.json`);
     const jsonData: AppDataDetailsResponse = await response.json();
     setInventoryDetails(jsonData);
   }

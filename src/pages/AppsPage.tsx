@@ -12,7 +12,7 @@ function AppsPage() {
 	const [orderBy, setOrderBy] = useState('');
 
   const fetchAppsInventory = async () => {
-    const response = await fetch('/apss_inventory.mock.json');
+    const response = await fetch(`${import.meta.env.BASE_URL}apss_inventory.mock.json`);
     const jsonData: AppDataResponse = await response.json();
     setAppsInventory(jsonData);
   }
