@@ -1,19 +1,17 @@
 import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
 import { User } from "../interfaces/AppDataDetails";
-import React from "react";
 
 function UsersList({users}) {
 	return (
 		<List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
 			{users?.map((user: User) => (
 				<>
-					<ListItem alignItems="flex-start">
+					<ListItem key={user.id} alignItems="flex-start">
 						<ListItemAvatar>
 							<Avatar alt="Remy Sharp" src={user.pic} />
 						</ListItemAvatar>
 						<ListItemText
-							primary="Brunch this weekend?"
-							secondary={<React.Fragment>
+							primary={<>
 								<Typography
 									component="span"
 									variant="body2"
@@ -21,8 +19,8 @@ function UsersList({users}) {
 								>
 									{user.name}
 								</Typography>
-								{" — I'll be in your neighborhood doing errands this…"}
-							</React.Fragment>} />
+							</>}
+							secondary={'alex@acme.ai'} />
 					</ListItem>
 					<Divider variant="inset" component="li" />
 				</>

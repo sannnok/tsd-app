@@ -6,8 +6,10 @@ function TopBar() {
 			<AppBar position="static">
 				<Toolbar>
 					<Box sx={{display: 'flex', gap: '16px'}}>
-						<Typography variant="h6" component="div">'Logo'</Typography>
-						<Typography variant="h6" component="div">Apps</Typography>
+						<img src="/img/company_logo.svg" alt="company logo" style={{
+							height: '30px'
+						}}/>
+						<Typography variant="h6" sx={{fontWeight: '400', borderBottom: '3px solid white'}}>Apps</Typography>
 					</Box>
 				</Toolbar>
 			</AppBar>

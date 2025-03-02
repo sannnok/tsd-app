@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AppData, AppDataResponse } from "../interfaces/AppData.interface";
-import { Box, Drawer, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Typography } from "@mui/material";
+import { Avatar, Box, Drawer, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Typography } from "@mui/material";
 import InventoryDetails from "../components/InventoryDetails";
 
 
@@ -37,7 +37,7 @@ function AppsPage() {
 
 	return (
 		<div>
-			<Typography variant="h5">App Inventory</Typography>
+			<Typography variant="h5" gutterBottom>App Inventory</Typography>
 			<TableContainer component={Paper}>
 				<Table sx={{ minWidth: 650 }} aria-label="Apps data table">
 					<TableHead>
@@ -64,15 +64,25 @@ function AppsPage() {
 					</TableHead>
 					<TableBody>
 						{appsInventory.map(inventory => (
-							<TableRow key={inventory.appId} onClick={() => handleInventoryClick(inventory)}>
-								<TableCell>{inventory.name}</TableCell>
+							<TableRow key={inventory.appId} onClick={() => handleInventoryClick(inventory)} hover>
+								<TableCell sx={{cursor: 'pointer'}}>
+									<Box sx={{display: 'flex', alignItems: 'center', gap: 1}}>
+										<Avatar alt="Remy Sharp" src={inventory.logos.app} />
+										{inventory.name}
+									</Box>
+								</TableCell>
 								<TableCell>{inventory.category}</TableCell>
 							</TableRow>
 						))}
 					</TableBody>
 				</Table>
 			</TableContainer>
-			<Drawer open={!!selectedInventory} onClose={closeDrawer} anchor="right" hideBackdrop>
+			<Drawer open={!!selectedInventory} onClose={closeDrawer} anchor="right" hideBackdrop sx={{
+				'& > .MuiPaper-root': {
+					height: 'calc(100vh - 64px)',
+					marginTop: '64px'
+				}
+			}}>
 				<InventoryDetails appId={selectedInventory?.appId}></InventoryDetails>
 			</Drawer>
 		</div>
